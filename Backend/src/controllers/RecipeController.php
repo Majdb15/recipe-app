@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Models\Recipe;
-use App\Services\sendEmail;
 
 class RecipeController
 {
