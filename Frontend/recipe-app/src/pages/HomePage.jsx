@@ -1,0 +1,1 @@
+// Main page to browse recipes and view shared recipes
