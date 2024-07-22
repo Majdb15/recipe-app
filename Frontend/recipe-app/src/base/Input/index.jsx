@@ -3,7 +3,7 @@ import './style.css'
 import '../../styles/colors.css'
 import '../../styles/utilities.css'
 
-const Input = ({label,placeHolder,type}) => {
+const Input = ({placeHolder,type,onTextChange}) => {
 
 
     return (
@@ -12,6 +12,7 @@ const Input = ({label,placeHolder,type}) => {
             type={type}
             className='rounded '
             placeholder={placeHolder}
+            onChange={(e)=>onTextChange(e)}
             ></input>
 
         </div>

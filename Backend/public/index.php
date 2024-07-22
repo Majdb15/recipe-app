@@ -20,4 +20,5 @@ $router->get('/hello', function() {
     echo 'Hello, World!';
 });
 
+$router->post('/api/createUser','App\Controllers\UserController@createUser');
 $router->run();

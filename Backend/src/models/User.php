@@ -19,16 +19,16 @@ class User
 
     /**
      * Insert a new record for users when they signup
-     * @param string $username
+     * @param string $name
      * @param string $email
      * @param string $password
      * @param string $created_at
      * @return bool|string
      */
-    public function createUser($username, $email, $password, $created_at)
+    public function createUser($name, $email, $password, $created_at)
     {
-        $stmt = $this->db->prepare("INSERT INTO users (username, email, password, created_at) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $username, $email, $password, $created_at);
+        $stmt = $this->db->prepare("INSERT INTO users (name, email, password, created_at) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $name, $email, $password, $created_at);
         
         if ($stmt->execute()) {
             return $this->db->insert_id;

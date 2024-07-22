@@ -6,7 +6,7 @@ import LoginSignup from './pages/Login-Signup'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { routes } from "./utils/routes.jsx";
-
+import Popup from './base/popup';
 const App = ()=>{
     return(
         <div className="flex column center">

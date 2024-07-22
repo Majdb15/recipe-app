@@ -17,12 +17,13 @@ class UserController
     public function createUser()
     {
         $data = json_decode(file_get_contents('php://input'), true);
-        $username = $data['username'];
+        //$data=$_POST;
+        $name = $data['name'];
         $email = $data['email'];
         $password = password_hash($data['password'], PASSWORD_BCRYPT);
         $created_at = date("Y-m-d H:i:s");
         
-        $insertedId = $this->userModel->createUser($username, $email, $password, $created_at);
+        $insertedId = $this->userModel->createUser($name, $email, $password, $created_at);
         
         if (is_numeric($insertedId)) {
             $_SESSION['user_id'] = $insertedId;
