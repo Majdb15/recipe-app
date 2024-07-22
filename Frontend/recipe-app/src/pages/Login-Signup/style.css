@@ -10,21 +10,6 @@
   }
   
   /* App.css */
-.social-container {
-  display: flex;
-  justify-content: space-around;
-}
-
-.social {
-  font-size: 24px;
-  color: #000;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.social:hover {
-  color: #007bff; /* Change color on hover */
-}
 
 
   body {
@@ -65,37 +50,7 @@
     text-decoration: none;
     margin: 15px 0;
   }
-  
-  button {
-    border-radius: 20px;
-    border: 1px solid #ff4b2b;
-    background-color: #ff4b2b;
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 12px 45px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: transform 80ms ease-in;
-  }
-  
-  button:active {
-    transform: scale(0.95);
-  }
-  
-  button:focus {
-    outline: none;
-  }
-  
-  button:hover{
-    cursor:pointer;
-  }
-
-  button.ghost {
-    background-color: transparent;
-    border-color: #ffffff;
-  }
-  
+   
   form {
     background-color: #ffffff;
     display: flex;
@@ -238,20 +193,6 @@
     transform: translateX(20%);
   }
   
-  .social-container {
-    margin: 20px 0;
-  }
-  
-  .social-container a {
-    border: 1px solid #dddddd;
-    border-radius: 50%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 5px;
-    height: 40px;
-    width: 40px;
-  }
   
   footer {
     background-color: #222;

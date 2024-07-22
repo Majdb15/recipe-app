@@ -40,7 +40,6 @@ class Recipe
         }
     }
 
-
     /**
          * return all recipes to show to users
          * @return array|null
