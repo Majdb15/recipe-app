@@ -1,6 +1,10 @@
 export const routes = {
     home: "/home",
     login: "/login",
-    about: "/about",
+    recipes: "/recipes",
+    shared_with_me: "/shared_with_me",
+    publish_recipe: "/publish_recipe",
+    logout:"/logout",
+    account:"/account"
   };
   
