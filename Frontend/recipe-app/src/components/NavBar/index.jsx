@@ -21,10 +21,7 @@ const Navbar = () => {
         </a>
       </div>
       <div className="navbar-center">
-        <ul className="nav-links">
-          <li>
-            <a href="/" onClick={(e) => { e.preventDefault(); goToShared(); }}>Shared with me</a>
-          </li>
+        <ul className="nav-links">    
           <li>
             <a href="/" onClick={(e) => { e.preventDefault(); goToPublish(); }}>Publish a recipe</a>
           </li>

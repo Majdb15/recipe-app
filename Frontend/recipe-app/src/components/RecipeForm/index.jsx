@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Input from '../../base/Input';
 import Button from '../../base/Button';
 import TextArea from '../../base/TextArea';
+import { useNavigate } from "react-router-dom";
+
 import './style.css';
 
 const RecipeForm = () => {
@@ -9,7 +11,8 @@ const RecipeForm = () => {
     const [ingredients, setIngredients] = useState('');
     const [steps, setSteps] = useState('');
     const [recipePicture, setRecipePicture] = useState(null);
-    const userId = localStorage.getItem('userID'); // assuming user_id is stored in localStorage
+    const userId = localStorage.getItem('userID'); 
+    const nav = useNavigate();
 
     const handleImageUpload = (event) => {
         const file = event.target.files[0];
@@ -24,18 +27,16 @@ const RecipeForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const createdAt = new Date().toISOString();
         const data = {
             name,
             ingredients,
             steps,
             recipe_picture: recipePicture,
             user_id: userId,
-            created_at: createdAt,
         };
 
         try {
-            const response = await fetch('http://localhost/React-PHP-Recipe-App/recipe-app/Backend/public/api/recipe', {
+            const response = await fetch('http://localhost/React-PHP-Recipe-App/recipe-app/Backend/public/api/create_recipe', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -45,7 +46,7 @@ const RecipeForm = () => {
 
             const result = await response.json();
             if (response.ok) {
-                alert('Recipe created successfully!');
+                nav('/home');
             } else {
                 alert(`Failed to create recipe: ${result.message}`);
             }
@@ -63,25 +64,24 @@ const RecipeForm = () => {
                     placeHolder="Recipe Name"
                     type="text"
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onTextChange={(e) => setName(e.target.value)}
                 />
                 <TextArea
                     placeHolder="Ingredients"
                     type="text"
                     value={ingredients}
-                    onChange={(e) => setIngredients(e.target.value)}
+                    onTextChange={(e) => setIngredients(e.target.value)}
                 />
                 <TextArea
                     placeHolder="Steps"
                     type="text"
                     value={steps}
-                    onChange={(e) => setSteps(e.target.value)}
+                    onTextChange={(e) => setSteps(e.target.value)}
                 />
                 <Input
-                    placeHolder="Recipe Picture"
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageUpload}
+                    placeHolder="https://upload ... spaghetti-carbonara.jpg"
+                    type="text"
+                    onTextChange={(e)=>setRecipePicture(e.target.value)}
                 />
                 <Button text="Create Recipe" type="submit" />
             </form>
