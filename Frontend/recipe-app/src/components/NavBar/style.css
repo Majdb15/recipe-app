@@ -1,0 +1,73 @@
+/* Make sure the navbar is fixed at the top of the screen */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space between left and right sections */
+    align-items: center; /* Vertically center items */
+    background-color: #ff416c;
+    color: #fff;
+    padding: 1rem;
+    position: fixed; /* Fixed position */
+    top: 0; /* Stick to the top */
+    left: 0;
+    right: 0;
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it's above other content */
+  }
+  
+  /* Ensure the left section (logo) is on the left side */
+  .navbar-left .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Center section for navigation links */
+  .navbar-center {
+    flex-grow: 1; /* Allow this section to take up remaining space */
+    display: flex;
+    justify-content: center; /* Center the links */
+  }
+  
+  .navbar-center .nav-links {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+  }
+  
+  .navbar-center .nav-links li {
+    margin-right: 1rem;
+  }
+  
+  .navbar-center .nav-links a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Right section for icons */
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-right .cart-icon,
+  .navbar-right .user-icon {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1rem;
+    position: relative;
+  }
+  
+  .navbar-right .cart-count {
+    background-color: #f44336;
+    color: #fff;
+    border-radius: 50%;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+  }
+  
