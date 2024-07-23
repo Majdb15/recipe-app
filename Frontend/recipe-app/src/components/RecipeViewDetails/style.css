@@ -1,10 +1,11 @@
 .container{
     padding-top: 20px;
+    z-index: 1;
 }
 
 .buttons-div{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 5px;
 }
 .time{
@@ -75,3 +76,17 @@
 .time p {
     margin: 0;
 }
+
+.download-button{
+    z-index: 2;
+}
+
+@media print {
+    .buttons-div {
+      display: none;
+    }
+    
+    .download-button {
+      display: none;
+    }
+  }

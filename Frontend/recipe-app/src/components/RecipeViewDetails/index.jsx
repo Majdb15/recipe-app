@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, forwardRef, useRef } from "react";
 import { useParams } from "react-router-dom";
 import Button from "../../base/Button";
-import './style.css'
+import './style.css';
+import ReactToPrint from "react-to-print";
 
-const RecipeViewDetails = () => {
+// Wrapping RecipeViewDetails with forwardRef
+const RecipeViewDetails = forwardRef((props, ref) => {
   const { id } = useParams();
+  const componentRef = useRef();
+  ref = componentRef;
   const [recipe, setRecipe] = useState(null);
 
   const fetchRecipe = async (recipeId) => {
@@ -25,35 +29,40 @@ const RecipeViewDetails = () => {
   if (!recipe) {
     return <div>Loading...</div>;
   }
+
   const splitSteps = (steps) => {
     // Match all steps starting with a number followed by a dot and space
     return steps.split(/(?=\d+\.\s)/).filter(step => step.trim());
   };
 
   return (
-    <div className=" container flex column wrap full-width ">
+    <div className="container flex column wrap full-width" ref={ref}>
       <div className="flex column center">
         <h2>{recipe.name}</h2>
-      <img  src={recipe.recipe_picture} alt={recipe.name} width={'500px'} height={"250px"} />
-    <p>{recipe.ingrediants}</p>
+        <img src={recipe.recipe_picture} alt={recipe.name} width={'500px'} height={"250px"} />
+        <p>{recipe.ingrediants}</p>
         <ul>
-            {splitSteps(recipe.steps).map((step, index) => (
+          {splitSteps(recipe.steps).map((step, index) => (
             <li key={index}>{step}</li>
-            ))}
+          ))}
         </ul>
-
       </div>
       
-      <div className="buttons-div ">
-            <Button text={"Share Recipe"}></Button>
-            <Button text={"Download Recipe"}></Button>
+      <div className="buttons-div">
+        <Button text={"Share Recipe"}></Button>
+        <Button text={"Review Recipe"}></Button>
+        <ReactToPrint
+          trigger={() => <Button text={'Download Recipe'}></Button>}
+          content={() => componentRef.current}
+        />
       </div>
       <div className="time flex wrap">
-            <p>created: {recipe.created_at}</p>
-            <p>updated: {recipe.last_updated}</p>
+        <p>created: {recipe.created_at}</p>
+        <p>updated: {recipe.last_updated}</p>
       </div>
     </div>
   );
-};
+});
+
 
 export default RecipeViewDetails;
