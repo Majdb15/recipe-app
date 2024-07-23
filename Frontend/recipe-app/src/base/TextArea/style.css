@@ -1,0 +1,21 @@
+label{
+    font-size: 15px;
+}
+
+.my-text-area {
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .my-text-area > label {
+    font-size: 12px;
+  }
+  
+  .my-input > textarea {
+    border: 1px solid grey;
+    padding: 2px 8px;
+    font-size: 12px;
+    height: 35px;
+    outline: none;
+  }
+  

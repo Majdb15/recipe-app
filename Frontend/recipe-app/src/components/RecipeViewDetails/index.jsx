@@ -1,4 +1,5 @@
 import React, { useEffect, useState, forwardRef, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Button from "../../base/Button";
 import './style.css';
@@ -6,6 +7,7 @@ import ReactToPrint from "react-to-print";
 
 // Wrapping RecipeViewDetails with forwardRef
 const RecipeViewDetails = forwardRef((props, ref) => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const componentRef = useRef();
   ref = componentRef;
@@ -34,6 +36,9 @@ const RecipeViewDetails = forwardRef((props, ref) => {
     // Match all steps starting with a number followed by a dot and space
     return steps.split(/(?=\d+\.\s)/).filter(step => step.trim());
   };
+  const navToReviewRecipe = (recipe_id)=>{
+    navigate(`/recipe_review/${recipe_id}`)
+  }
 
   return (
     <div className="container flex column wrap full-width" ref={ref}>
@@ -50,7 +55,7 @@ const RecipeViewDetails = forwardRef((props, ref) => {
       
       <div className="buttons-div">
         <Button text={"Share Recipe"}></Button>
-        <Button text={"Review Recipe"}></Button>
+        <Button text={"Review Recipe"} onClick={()=>{navToReviewRecipe(recipe.id_recipe)}}></Button>
         <ReactToPrint
           trigger={() => <Button text={'Download Recipe'}></Button>}
           content={() => componentRef.current}
