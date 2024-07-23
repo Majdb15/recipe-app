@@ -44,7 +44,7 @@ class Recipe
          * return all recipes to show to users
          * @return array|null
          */
-    public function getAllRecipes()
+    public function getRecipes()
     {
         $stmt = $this->db->prepare("SELECT * FROM recipes");
         $stmt->execute();

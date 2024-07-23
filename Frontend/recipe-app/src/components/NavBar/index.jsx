@@ -7,7 +7,7 @@ const Navbar = () => {
 
   // Handler functions for navigation
   const goToHome = () => navigate(routes.home);
-  const goToRecipes = () => navigate(routes.recipes);
+  //const goToRecipes = () => navigate(routes.recipes);
   const goToShared = () => navigate(routes.shared_with_me);
   const goToPublish = () => navigate(routes.publish_recipe);
   const goToAccount = () => navigate(routes.account);
@@ -22,9 +22,6 @@ const Navbar = () => {
       </div>
       <div className="navbar-center">
         <ul className="nav-links">
-          <li>
-            <a href="/" onClick={(e) => { e.preventDefault(); goToRecipes(); }}>Recipes</a>
-          </li>
           <li>
             <a href="/" onClick={(e) => { e.preventDefault(); goToShared(); }}>Shared with me</a>
           </li>

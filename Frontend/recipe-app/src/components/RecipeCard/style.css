@@ -1,0 +1,26 @@
+.recipe-container {
+    border: 2px solid #000000; /* Stroke color and width */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Space inside the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for card effect */
+    max-width: 300px; /* Maximum width for the card */
+    margin: 16px auto; /* Center the card horizontally */
+    background-color: #fff; /* Background color */
+  }
+  
+
+.recipe-container> p {
+    font-size: 18px;
+}
+
+.recipe-container {
+    border: 1px solid #ccc; /* Optional: Add a border for visibility */
+    padding: 16px;
+    background-color: #fff;
+}
+
+.recipe-container img {
+    display: block; /* Ensure the image is displayed */
+    margin: 0 auto; /* Center the image if necessary */
+    margin-bottom: 12px;
+}

@@ -1,0 +1,45 @@
+.page-container {
+    display: flex;
+    flex-direction: column; /* Stack child elements vertically */
+    flex-wrap: wrap;
+    padding-top: 320px; /* Ensure content is not hidden behind the Navbar */
+    max-width: 1200px; /* Optional: Adjust to fit your design */
+    margin: 0 auto; /* Center the page container */
+}
+
+.recipe-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Adds space between cards */
+    padding-top: 15%;
+    align-items: flex-start;
+}
+
+.recipe-card {
+    flex: 1 1 200px; /* Flexible sizing of cards */
+    box-sizing: border-box; /* Ensure padding and borders are included in width/height */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+.recipe-card img {
+    max-width: 100%; /* Ensure images fit within their container */
+    height: auto; /* Maintain image aspect ratio */
+}
+
+@media screen and (max-width: 968px) {
+    .recipe-card-container {
+        padding-top: 60%;
+    }
+}
+
+@media screen and (max-width: 676px) {
+    .recipe-card-container {
+        padding-top: 180%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .recipe-card-container {
+        padding-top: 650%;
+    }
+}

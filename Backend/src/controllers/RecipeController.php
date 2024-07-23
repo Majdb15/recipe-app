@@ -36,7 +36,7 @@ class RecipeController
 
     public function getAllRecipes()
     {
-        $recipes = $this->recipeModel->getAllRecipes();
+        $recipes = $this->recipeModel->getRecipes();
         echo json_encode($recipes);
     }
 

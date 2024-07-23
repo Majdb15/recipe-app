@@ -23,4 +23,6 @@ $router->get('/hello', function() {
 $router->post('/api/createUser','App\Controllers\UserController@createUser');
 $router->post('/api/login','App\Controllers\UserController@logUserIn');
 
+
+$router->get('/api/get_all_recipes','App\Controllers\RecipeController@getAllRecipes');
 $router->run();
