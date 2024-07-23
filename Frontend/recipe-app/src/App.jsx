@@ -11,6 +11,7 @@ import RecipeReviewForm from './components/RecipeReviewForm';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { routes } from "./utils/routes.jsx";
+import RecipeShare from './components/RecipeShare';
 
 
 const App = ()=>{
@@ -22,6 +23,7 @@ const App = ()=>{
           <Route path={routes.home} element={<HomePage></HomePage>} />
           <Route path="/recipe_details/:id" element={<RecipeViewDetails />} />
           <Route path="/recipe_review/:id" element={<RecipeReviewForm />} />
+          <Route path="/recipe_share/:id" element={<RecipeShare />} />
           <Route path="/*" element={<h3>Not Found</h3>} />
         </Routes>
       </BrowserRouter>
