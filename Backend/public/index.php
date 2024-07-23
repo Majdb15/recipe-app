@@ -25,4 +25,5 @@ $router->post('/api/login','App\Controllers\UserController@logUserIn');
 
 
 $router->get('/api/get_all_recipes','App\Controllers\RecipeController@getAllRecipes');
+$router->get('/api/get_recipe/{id}', "App\Controllers\RecipeController@getRecipeById");
 $router->run();

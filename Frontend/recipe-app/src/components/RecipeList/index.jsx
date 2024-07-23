@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import RecipeCard from "../RecipeCard";
-
 import "./style.css"
 import "../../pages/HomePage/style.css"
 
@@ -36,11 +35,17 @@ const RecipesList = () => {
     fetchRecipes();
   }, []);
 
+  const navToRecipeDetail = (recipe_id)=>{
+    navigate(`/recipe_details/${recipe_id}`)
+  }
+
   return (
     <div className='recipe-card-container flex row wrap '>
       {recipes.map((recipe) => {
         return (
-          <RecipeCard imageURL={recipe.recipe_picture} name={recipe.name}></RecipeCard>
+          <RecipeCard imageURL={recipe.recipe_picture} name={recipe.name}
+            onViewMoreClick={()=>{navToRecipeDetail(recipe.id_recipe)}}
+          ></RecipeCard>
         );
       })}
     </div>

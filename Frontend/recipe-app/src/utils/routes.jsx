@@ -5,6 +5,7 @@ export const routes = {
     shared_with_me: "/shared_with_me",
     publish_recipe: "/publish_recipe",
     logout:"/logout",
-    account:"/account"
+    account:"/account",
+    recipe_details:"/recipe-details"
   };
   

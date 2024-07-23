@@ -1,0 +1,77 @@
+.container{
+    padding-top: 20px;
+}
+
+.buttons-div{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+.time{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+/* style.css */
+
+/* Container for the whole page */
+.recipe-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Header styling */
+.recipe-details-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Image styling */
+.recipe-details-container img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+/* Ingredients styling */
+.recipe-details-container p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.recipe-details-container ul {
+    list-style-type: decimal;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.recipe-details-container li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.buttons-div {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Time info styling */
+.time {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.time p {
+    margin: 0;
+}
