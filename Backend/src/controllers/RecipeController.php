@@ -20,14 +20,16 @@ class RecipeController
     public function createRecipe()
     {
         $data = json_decode(file_get_contents('php://input'), true);
+        //$data=$_POST;
         $name = $data['name'];
         $ingredients = $data['ingredients'];
         $steps = $data['steps'];
-        $recipe_url = $data['recipe_url'];
+        $recipe_picture = $data['recipe_picture'];
+        $user_id = $data['user_id'];
+
         $created_at = date("Y-m-d H:i:s");
-        $user_id = $_SESSION['user_id'];
         
-        $insertedId = $this->recipeModel->createRecipe($name, $ingredients, $steps, $recipe_url, $created_at, $user_id);
+        $insertedId = $this->recipeModel->createRecipe($name, $ingredients, $steps,$recipe_picture, $created_at, $user_id);
         
         if (is_numeric($insertedId)) {
             echo json_encode(['message' => 'Recipe created!', 'recipe_id' => $insertedId]);

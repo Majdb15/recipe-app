@@ -29,6 +29,7 @@ $router->get('/api/emails','App\Controllers\UserController@getUsersEmails');
 $router->get('/api/get_all_recipes','App\Controllers\RecipeController@getAllRecipes');
 $router->get('/api/get_recipe/{id}', "App\Controllers\RecipeController@getRecipeById");
 $router->post('/api/share_recipe',"App\Controllers\RecipeController@shareRecipe");
+$router->post('/api/create_recipe',"App\Controllers\RecipeController@createRecipe");
 
 //review routes
 $router->post('/api/review/{id}',"App\Controllers\ReviewController@createReview");

@@ -23,15 +23,15 @@ class Recipe
          * @param string $name
          * @param string $ingredients
          * @param string $steps
-         * @param string $recipe_url
+         * @param string $recipe_picture
          * @param string $created_at
          * @param int $user_id
          * @return boolean
          */
-    public function createRecipe($name, $ingredients, $steps, $recipe_url, $created_at, $user_id)
+    public function createRecipe($name, $ingredients, $steps, $recipe_picture , $created_at, $user_id)
     {
-        $stmt = $this->db->prepare("INSERT INTO recipes (name, ingredients, steps, recipe_url, created_at, user_id) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssssi", $name, $ingredients, $steps, $recipe_url, $created_at, $user_id);
+        $stmt = $this->db->prepare("INSERT INTO recipes (name, ingrediants, steps, recipe_picture, created_at, user_id) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssssi", $name, $ingredients, $steps,$recipe_picture, $created_at, $user_id);
         
         if ($stmt->execute()) {
             return $this->db->insert_id;
