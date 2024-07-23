@@ -21,4 +21,6 @@ $router->get('/hello', function() {
 });
 
 $router->post('/api/createUser','App\Controllers\UserController@createUser');
+$router->post('/api/login','App\Controllers\UserController@logUserIn');
+
 $router->run();

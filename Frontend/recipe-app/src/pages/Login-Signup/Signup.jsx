@@ -17,6 +17,12 @@ const SignUpForm = ()=> {
     setIsPopupVisible(!isPopupVisible);
   };
 
+  const [isEmptyFieldsPopup, setEmptyFieldsPopup] = useState(false);
+
+  const toggleEmptyFieldsPopup = () => {
+    setEmptyFieldsPopup(!isEmptyFieldsPopup);
+  };
+
   const [password1,setPassword1]= useState('');
   const [password2,setPassword2]= useState('');
   const [passwordMatchFlag,setPasswordMatchFlag]=useState(true);
@@ -44,6 +50,10 @@ const SignUpForm = ()=> {
 
   const handelSignup = async (e)=>{
     e.preventDefault();
+    if(email===''||name===''||password1===''|| password2===''){
+      toggleEmptyFieldsPopup();
+    }
+    else {
     const URL = 'http://localhost/React-PHP-Recipe-App/recipe-app/Backend/public/api/createUser';
     const response = await fetch(URL, {
       method: 'POST', // Specify the method
@@ -59,12 +69,9 @@ const SignUpForm = ()=> {
     const data = await response.json();
       if(data.message==="User created!"){
         console.log("created");
-        setName('');
-        setEmail('');
-        setPassword1('');
-        setPassword2('');
         togglePopup();
       }
+    }
   }
 
   return (
@@ -81,6 +88,7 @@ const SignUpForm = ()=> {
         <Button text='Sign in' onClick={handelSignup}></Button>
         {emailFlag && <p>Invalid Email</p>}
         {isPopupVisible && <Popup message='You may login now' onClose={()=>{setIsPopupVisible(false)}}></Popup>}
+        {isEmptyFieldsPopup && <Popup message='Can not have empty fields' onClose={()=>{setEmptyFieldsPopup(false)}}></Popup>}
       </form>
     </div>
   );

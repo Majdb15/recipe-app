@@ -51,7 +51,21 @@ class User
         return $result->fetch_assoc();
     }
 
-    // Additional methods for user authentication and management
+
+    /**
+     * get a user by his specific email
+     * @param string $email
+     * @return array|bool|null
+     */
+    public function getUserByEmail($email)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
+    
 }
 
 ?>

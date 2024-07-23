@@ -4,8 +4,25 @@ import './style.css'
 import Input from "../../base/Input";
 import Button from "../../base/Button";
 import Socials from "../../components/Socials"
-
+import Popup from "../../base/popup";
+import { useNavigate } from "react-router-dom";
 const SignInForm = () => {
+
+  const nav = useNavigate();
+
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+  const togglePopup = () => {
+    setIsPopupVisible(!isPopupVisible);
+  };
+
+  const [isEmptyFieldsPopup, setEmptyFieldsPopup] = useState(false);
+
+  const toggleEmptyFieldsPopup = () => {
+    setEmptyFieldsPopup(!isEmptyFieldsPopup);
+  };
+
+
 
   const [email,setEmail] = useState('');
   const [password,setPassword]=useState('');
@@ -29,7 +46,11 @@ const SignInForm = () => {
 
   const handleLogin = async (e)=>{
     e.preventDefault();
-    const URL = '';
+    if(email===''||password===''){
+      toggleEmptyFieldsPopup();
+    }
+    else {
+    const URL = 'http://localhost/React-PHP-Recipe-App/recipe-app/Backend/public/api/login';
     const response = await fetch(URL, {
       method: 'POST', // Specify the method
       headers: {
@@ -40,6 +61,17 @@ const SignInForm = () => {
         password: password,
       }),
     });
+
+    const data = await response.json();
+    console.log(data);
+    if(data.message==="Invalid email or password."){
+      togglePopup();
+    }
+    else if(data.message==="Login successful."){
+      nav('/home');
+    }
+  
+  }
   }
 
   return (
@@ -53,6 +85,8 @@ const SignInForm = () => {
         <a href="#">Forgot your password?</a>
         <Button text='Sign in' onClick={handleLogin}></Button>
         {emailFlag && <p>Invalid Email</p>}
+        {isPopupVisible && <Popup message='Wrong email or password' onClose={()=>{setIsPopupVisible(false)}}></Popup>}
+        {isEmptyFieldsPopup && <Popup message='Can not have empty fields' onClose={()=>{setEmptyFieldsPopup(false)}}></Popup>}
       </form>
     </div>
   );
