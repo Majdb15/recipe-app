@@ -65,6 +65,24 @@ class User
         $result = $stmt->get_result();
         return $result->fetch_assoc();
     }
+
+
+    /**
+     * get all emails available
+     * @return array|bool|null
+     */
+    public function getUsersEmails()
+{
+    $stmt = $this->db->prepare("SELECT email FROM users");
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $emails = [];
+    while ($row = $result->fetch_assoc()) {
+        $emails[] = $row['email'];
+    }
+    return $emails;
+}
+
     
 }
 

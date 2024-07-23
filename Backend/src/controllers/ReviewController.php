@@ -10,15 +10,16 @@ class ReviewController
 
     public function __construct()
     {
-        session_start();
+        
         $this->reviewModel = new Review();
     }
 
     public function createReview()
     {
         $data = json_decode(file_get_contents('php://input'), true);
+        //$data = $_POST;
         $recipe_id = $data['recipe_id'];
-        $user_id = $_SESSION['user_id'];
+        $user_id = $data['user_id'];
         $review_message = $data['review_message'];
         $rating = $data['rating'];
         

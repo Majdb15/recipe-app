@@ -78,6 +78,11 @@ class UserController
             echo json_encode(['message' => 'Method not allowed.']);
         }
     }
+
+    public function getUsersEmails(){
+        $user = $this->userModel->getUsersEmails();
+        echo json_encode($user);
+    }
 }
 
 ?>

@@ -20,10 +20,15 @@ $router->get('/hello', function() {
     echo 'Hello, World!';
 });
 
+//user routes
 $router->post('/api/createUser','App\Controllers\UserController@createUser');
 $router->post('/api/login','App\Controllers\UserController@logUserIn');
+$router->get('/api/emails','App\Controllers\UserController@getUsersEmails');
 
-
+//recipe routes
 $router->get('/api/get_all_recipes','App\Controllers\RecipeController@getAllRecipes');
 $router->get('/api/get_recipe/{id}', "App\Controllers\RecipeController@getRecipeById");
+
+//review routes
+$router->post('/api/review/{id}',"App\Controllers\ReviewController@createReview");
 $router->run();
