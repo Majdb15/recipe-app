@@ -5,9 +5,11 @@ import Socials from './components/Socials';
 import LoginSignup from './pages/Login-Signup'
 import NavBar from './components/NavBar';
 import Popup from './base/popup';
+import HomePage from './pages/HomePage/HomePage';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { routes } from "./utils/routes.jsx";
+
 
 const App = ()=>{
     return(
@@ -15,7 +17,7 @@ const App = ()=>{
         <BrowserRouter>
         <Routes>
           <Route path={routes.login} element={<LoginSignup />} />
-          <Route path={routes.home} element={<NavBar></NavBar>} />
+          <Route path={routes.home} element={<HomePage></HomePage>} />
           <Route path="/*" element={<h3>Not Found</h3>} />
         </Routes>
       </BrowserRouter>

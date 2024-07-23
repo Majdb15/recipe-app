@@ -68,6 +68,7 @@ const SignInForm = () => {
       togglePopup();
     }
     else if(data.message==="Login successful."){
+      localStorage.setItem("userID",data.userID);
       nav('/home');
     }
   

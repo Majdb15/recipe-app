@@ -8,7 +8,8 @@
         "bramus/router": "^1.6",
         "guzzlehttp/guzzle": "*",
         "openai-php/client": "*",
-        "phpmailer/phpmailer": "*"
+        "phpmailer/phpmailer": "*",
+        "firebase/php-jwt": "*"
     },
     "autoload": {
         "psr-4": {
