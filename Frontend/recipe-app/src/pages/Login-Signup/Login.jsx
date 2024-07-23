@@ -23,11 +23,11 @@ const SignInForm = () => {
   };
 
 
+  const [password,setPassword]=useState('');
+
 
   const [email,setEmail] = useState('');
-  const [password,setPassword]=useState('');
   const [emailFlag,setEmailFlag]=useState(false);
-
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

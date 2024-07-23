@@ -11,7 +11,7 @@ const Navbar = () => {
   const goToShared = () => navigate(routes.shared_with_me);
   const goToPublish = () => navigate(routes.publish_recipe);
   const goToAccount = () => navigate(routes.account);
-  const logout = () => navigate(routes.logout);
+  const logout = () => navigate(routes.login);
 
   return (
     <nav className="navbar">
@@ -35,14 +35,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-right">
-        {/* 
-        <a href="/cart" className="cart-icon">
-          <i className="fas fa-shopping-cart"></i>
-          <span className="cart-count">0</span>
-        </a> */}
-        <a href="/" onClick={(e) => { e.preventDefault(); logout(); }} >
-            Logout
-        </a>
+        <a href="/" onClick={(e) => { e.preventDefault(); logout(); }}>Logout</a>
         <a href="/" onClick={(e) => { e.preventDefault(); goToAccount(); }} className="user-icon">
           <i className="fas fa-user fa-2x"></i>
         </a>

@@ -4,10 +4,11 @@ import Input from './base/Input';
 import Socials from './components/Socials';
 import LoginSignup from './pages/Login-Signup'
 import NavBar from './components/NavBar';
+import Popup from './base/popup';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { routes } from "./utils/routes.jsx";
-import Popup from './base/popup';
+
 const App = ()=>{
     return(
         <div className="flex column center">
