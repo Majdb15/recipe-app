@@ -40,6 +40,10 @@ const RecipeViewDetails = forwardRef((props, ref) => {
     navigate(`/recipe_review/${recipe_id}`)
   }
 
+  const navToShareRecipe = (recipe_id)=>{
+    navigate(`/recipe_share/${recipe_id}`)
+  }
+
   return (
     <div className="container flex column wrap full-width" ref={ref}>
       <div className="flex column center">
@@ -54,7 +58,7 @@ const RecipeViewDetails = forwardRef((props, ref) => {
       </div>
       
       <div className="buttons-div">
-        <Button text={"Share Recipe"}></Button>
+        <Button text={"Share Recipe"} onClick={()=>{navToShareRecipe(recipe.id_recipe)}}></Button>
         <Button text={"Review Recipe"} onClick={()=>{navToReviewRecipe(recipe.id_recipe)}}></Button>
         <ReactToPrint
           trigger={() => <Button text={'Download Recipe'}></Button>}
